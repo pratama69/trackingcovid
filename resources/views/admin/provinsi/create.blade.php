@@ -1,6 +1,33 @@
 @extends('layouts.master')
+@section('css')
+<!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+@endsection
 
 @section('content')
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+         @if (session('message'))
+                <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                {{ session('message') }}
+                </div>
+            @elseif(session('message1'))
+                <div class="alert alert-danger" role="alert">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                {{ session('message1') }}
+                </div>
+            @endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -13,15 +40,15 @@
                             <label for="exampleInputEmail1" class="form-label">kode provinsi</label>
                             <input type="text" name="kode_provinsi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             @if($errors->has('kode_provinsi'))
-                                <span class="text-danger">{{ $errors->first('kode_provinsi') }}</span>
-                            @endif
+                        <span class="text-danger">{{ $errors->first('kode_provinsi')}}</span>
+                        @endif
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Provinsi</label>
                             <input type="text" name="nama_provinsi" class="form-control" id="exampleInputPassword1">
-                            @if($errors->has('kode_provinsi'))
-                                <span class="text-danger">{{ $errors->first('nama_provinsi') }}</span>
-                            @endif
+                            @if($errors->has('nama_provinsi'))
+                        <span class="text-danger">{{ $errors->first('nama_provinsi')}}</span>
+                        @endif
                         </div>
                         <div class="form-group">
                         <button type="submit" class="btn btn-outline-primary">Simpan</button>
@@ -32,4 +59,22 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+<script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
 @endsection

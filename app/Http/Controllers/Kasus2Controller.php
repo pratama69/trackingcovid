@@ -33,7 +33,7 @@ class Kasus2Controller extends Controller
     public function create()
     {
         $rw = Rw::all();
-        return view('admin.kasus2.create', compact('rw'));
+        return view ('admin.kasus2.create', compact('rw'));
     }
 
     /**
@@ -51,7 +51,7 @@ class Kasus2Controller extends Controller
         $kasus2->jsembuh = $request->jsembuh;
         $kasus2->tanggal = $request->tanggal;
         $kasus2->save();
-        return redirect()->route('kasus2.index')->with(['message'=>'Data Berhasil dibuat']);
+        return redirect()->route('kasus2.index')->with(['message' => 'Data Kasus2 Berhasil disimpan']);
     }
 
     /**
@@ -76,7 +76,7 @@ class Kasus2Controller extends Controller
     {
         $kasus2 = Kasus2::findOrFail($id);
         $rw = Rw::all();
-        return view('admin.kasus2.edit', compact('kasus2', 'rw'));
+        return view('admin.kasus2.edit', compact('kasus2', 'rw'))->with(['message' => 'Data Kasus2 Berhasil diedit']);
     }
 
     /**
@@ -88,14 +88,14 @@ class Kasus2Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kasus2 = new Kasus2;
+        $kasus2 = Kasus2::findOrFail($id);
         $kasus2->id_rw = $request->id_rw;
         $kasus2->jpositif = $request->jpositif;
         $kasus2->jmeninggal = $request->jmeninggal;
         $kasus2->jsembuh = $request->jsembuh;
         $kasus2->tanggal = $request->tanggal;
         $kasus2->save();
-        return redirect()->route('kasus2.index')->with(['message'=>'Data Berhasil dibuat']);
+        return redirect()->route('kasus2.index')->with(['message' => 'Data Kasus2 Berhasil disimpan']);
     }
 
     /**
@@ -106,7 +106,8 @@ class Kasus2Controller extends Controller
      */
     public function destroy($id)
     {
-        $kasus2 = Kasus2::findOrFail($id)->delete();
-        return redirect()->route('kasus2.index')->with(['message1'=>'Berhasil dihapus']);
+        $kasus2 = Kasus2::findOrFail($id);
+        $kasus2->delete();
+        return redirect()->route('kasus2.index')->with(['message' => 'Data Kasus2 Berhasil diHapus']);
     }
 }

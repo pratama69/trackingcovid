@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Livewire;
 
 use Livewire\Component;
@@ -9,7 +8,7 @@ use App\Models\kecamatan;
 use App\Models\kelurahan;
 use App\Models\rw;
 use App\Models\kasus2;
-class Hallo extends Component
+class hallo extends Component
 {
     public $provinsi;
     public $kota;

@@ -3,65 +3,62 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-        @if (session('message'))
-                <div class="alert alert-success" role="alert">
-                {{ session('message') }}
-                </div>
-            @elseif(session('message1'))
-                <div class="alert alert-danger" role="alert">
-                {{ session('message1') }}
-              s  </div>
-            @endif
+        <div class="col-md-16">
             <div class="card">
-            <div class="card-header">{{ __('Data Kasus Local') }} 
-                </div>
-                <div class="card">
-                <a href="{{route('kasus2.create')}}" class="btn btn-primary float-right"> Tambah Data </a>
-                </div>
+                <div class="card-header"><center><b>{{ __('Data Kasus Local') }}</b></center></div>
 
-                <table id="example1" class="table table-bordered table-striped"> 
-                            
+                <div class="card-body">
+                <a href="{{route('kasus2.create')}}" class="btn btn-primary float-right"><b>Tambah Data</b></a>
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <table id="example1" class="table table-bordered table-striped"> 
                     <thead>
                     <tr class="bg-dark">
-                         <th>No</th>      
-                         <th>RW</th>
-                         <th>Positif</th>
-                         <th>Meninggal</th>
-                         <th>Sembuh</th>
-                         <th>Tanggal</th>
-                         <th>Action</th>
-                       </tr>  
+                        <th scope="col">No</th>
+                        <th scope="col">Rw</th>
+                        <th scope="col">Lokasi</th>
+                        <th scope="col">Jumlah Positif</th>
+                        <th scope="col">Jumlah Meninggal</th>
+                        <th scope="col">Jumlah Sembuh</th>
+                        <th scope="col">Tanggal</th>
+                        <th scope="col">Action</th>
+                      </tr>
                     </thead>
                     <tbody>
-                         @php $no= 1; @endphp
-                         @foreach($kasus2 as $data)
-                            <tr>
-                                <th scoppe="row">{{$no++}}</th>
-                                <td>{{$data->rw->nama_rw}}</td>
-                                <td class="text-center">{{$data->jpositif}}</td>
-                                <td class="text-center">{{$data->jmeninggal}}</td>
-                                <td class="text-center">{{$data->jsembuh}}</td>
-                                <td class="text-center">{{$data->tanggal}}</td>
-                                <td><form action="{{route('kasus2.destroy',$data->id)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a href="{{route('kasus2.show',$data->id)}}" class="btn btn-sm btn-success">Lihat</a> |
-                                    <a href="{{route('kasus2.edit',$data->id)}}" class="btn btn-sm btn-warning">Edit</a> |
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin ?')">
-                                     Delete
-                                    </button>
-                                </form>
-                                </td>
-                            </tr>
-                          @endforeach
-                  </tbody>  
-                 </table>
-              </div>
+                    @php $no = 1; @endphp
+                    @foreach($kasus2 as $data)
+                      <tr>
+                        <th scope="row">{{$no++}}</th>
+                        <td>{{$data->rw->nama_rw}}</td>
+                        <td><center><b>Provinsi : {{$data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi}}<br>
+                                            Kota : {{$data->rw->kelurahan->kecamatan->kota->nama_kota}}<br>
+                                            Kecamatan : {{$data->rw->kelurahan->kecamatan->nama_kecamatan}}<br>
+                                            Kelurahan : {{$data->rw->kelurahan->nama_kelurahan}}<br></b>
+                                           </center></td>
+                        <td>{{$data->jpositif}}</td>
+                        <td>{{$data->jmeninggal}}</td>
+                        <td>{{$data->jsembuh}}</td>
+                        <td>{{$data->tanggal}}</td>
+                        <td>
+                        <form action="{{route('kasus2.destroy', $data->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <a class="btn btn-success btn-sm" href="{{route('kasus2.show', $data->id)}}">show</a>|
+                                <a class="btn btn-warning btn-sm" href="{{route('kasus2.edit', $data->id)}}">edit</a>|
+                                <button type="submit" class="btn btn-danger  btn-sm" onclick="return confirm('Apakah anda yakin ?')"><a>delete</a></button>
+                        </td>
+                      </tr>
+                          </form>
+                      @endforeach
+                    </tbody>
+                  </table>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

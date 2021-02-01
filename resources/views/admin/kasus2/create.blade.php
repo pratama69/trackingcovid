@@ -3,60 +3,60 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Data Kasus Local') }}</div>
+                <div class="card-header"><center><b>{{ __('Data Kasus Local') }}</b></center></div>
 
                 <div class="card-body">
-                <form  action="{{route('kasus2.store')}}" method="post">
-                    @csrf
-                        <!-- <div class="col">
-                            @livewire('hallo')
-                        </div>
-
-                            <center><h2><p>-- Data Kasus Local --</p></h2></center> -->
-
-                     <div class="form-group">
-                        <label for="">RW</label>
-                        <select name="id_rw" class="form-control" required>
-                            @foreach($rw as $data)
-                                <option value="{{$data->id}}">{{$data->nama_rw}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                      <div class="form-group">
-                    <div class="mb-12>
-                        <label for="exampleInputPassword1" class="form-label">Positif</label>
-                        <input type="number" class="form-control" id="exampleInputPassword1" name="jpositif"
-                        required>
-                    </div>
-                     </div>
-                     <div class="form-group">
-                    <div class="mb-12>
-                        <label for="exampleInputPassword1" class="form-label">Meninggal</label>
-                        <input type="number" class="form-control" id="exampleInputPassword1" name="jmeninggal"
-                        required>
-                    </div>
-                     </div>
-                     <div class="form-group">
-                    <div class="mb-12>
-                        <label for="exampleInputPassword1" class="form-label">Sembuh</label>
-                        <input type="number" class="form-control" id="exampleInputPassword1" name="jsembuh"
-                        required>
-                    </div>
-                     </div>
-                     <div class="form-group">
-                    <div class="mb-12>
-                        <label for="exampleInputPassword1" class="form-label">Tanggal</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1" name="tanggal"
-                        required>
-                    </div>
-                     </div>
-                    <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
+                <form action="{{route('kasus2.store')}}" method="POST">
+                @csrf
+                <div class="col">
+                <livewire:hallo>
                 </div>
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+            
+                <div class="mb-3">
+                        <label for="" class="form-label">Rw</label>
+                       <select name="id_rw" class="form-control" id="">
+                       @foreach($rw as $data)
+                       <option value="{{$data->id}}">{{$data->nama_rw}}</option>
+                       @endforeach
+                       </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Jumlah Positif</label>
+                        <input type="number" name="jpositif" class="form-control" id="">
+                        @if($errors->has('jpositif'))
+                        <span class="text-danger">{{ $errors->first('jpositif')}}</span>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Jumlah Meninggal</label>
+                        <input type="number" name="jmeninggal" class="form-control" id="">
+                        @if($errors->has('jmeninggal'))
+                        <span class="text-danger">{{ $errors->first('jmeninggal')}}</span>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Jumlah Sembuh</label>
+                        <input type="number" name="jsembuh" class="form-control" id="">
+                        @if($errors->has('jsembuh'))
+                        <span class="text-danger">{{ $errors->first('jsembuh')}}</span>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Tanggal</label>
+                        <input type="date" name="tanggal" class="form-control" id="">
+                        @if($errors->has('tanggal'))
+                        <span class="text-danger">{{ $errors->first('tanggal')}}</span>
+                        @endif
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
                 </div>
             </div>
         </div>

@@ -1,7 +1,3 @@
-<div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-</div>
-
 <div class="form-group">
     <div class ="m-auto">
         <div class="mb-8 form-group">
@@ -63,7 +59,7 @@
                     >
                     <option value=''>-- pilih RW --</option>
                     @foreach($rw as $r)
-                        <option value={{ $r->id }} <?= (!is_null($pkelurahan) && $r->id_kelurahan == $pkelurahan)? 'selected' : '';?>>{{ $r->nama }}</option>
+                        <option value={{ $r->id }} <?= (!is_null($pkelurahan) && $r->id_kelurahan == $pkelurahan)? 'selected' : '';?>>{{ $r->nama_rw }}</option>
                     @endforeach
                 </select>
             </div>

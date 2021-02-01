@@ -12,16 +12,16 @@
                      <div class="form-group">
                         <label for="" class="form-label">Kode Kota</label>
                         <input type="text" class="form-control" name="kode_kota" required>
-                        @error('kode_kota'))
-                          <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        @if($errors->has('kode_kota'))
+                        <span class="text-danger">{{ $errors->first('kode_kota')}}</span>
+                        @endif
                      </div>
                      <div class="form-group">
                         <label for="" class="form-label">Nama Kota</label>
                         <input type="text" class="form-control" name="nama_kota" required>
-                        @error('nama_kota'))
-                          <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        @if($errors->has('nama_kota'))
+                        <span class="text-danger">{{ $errors->first('nama_kota')}}</span>
+                        @endif
                         </div>
                      <div class="form-group">
                         <label for="" class="form-label">Nama Provinsi</label>
