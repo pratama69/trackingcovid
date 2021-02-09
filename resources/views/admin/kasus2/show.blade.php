@@ -34,6 +34,9 @@
                         <label for="" class="form-label">Tanggal</label>
                         <input type="date" name="tanggal"  value="{{$kasus2->tanggal}}" class="form-control" id="" readonly>
                     </div>
+                    <div class="form-group">
+                    <a href="{{url()->previous()}}" class="btn btn-outline-secondary">Kembali</a>
+                    </div>
                 </div>
             </div>
         </div>

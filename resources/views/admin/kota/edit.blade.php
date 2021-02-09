@@ -28,7 +28,8 @@
                         </select>
                      </div>
                      <div class="form-group">
-                        <button type="submit" class="btn btn-outline-secondary">Add Data</button>
+                     <button type="submit" class="btn btn-outline-dark">Simpan</button>
+                        <button type="submit" class="btn btn-outline-secondary">Kembali</button>
                      </div>
                   </form>
                </div>

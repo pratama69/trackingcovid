@@ -12,9 +12,9 @@
                      <div class="form-group">
                         <label for="" class="form-label">Nama Rw</label>
                         <input type="text" class="form-control" name="nama_rw" required>
-                        @if($errors->has('nama_rw'))
-                        <span class="text-danger">{{ $errors->first('nama_rw')}}</span>
-                        @endif
+                        @error('nama')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                      </div>
                      <div class="form-group">
                         <label for="" class="form-label">Nama Kelurahan</label>
@@ -25,7 +25,7 @@
                         </select>
                      </div>
                      <div class="form-group">
-                     <button type="submit" class="btn btn-outline-primary">Tambah Data</button>
+                     <button type="submit" class="btn btn-outline-primary">Simpan</button>
                      </div>
                   </form>
                </div>

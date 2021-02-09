@@ -46,9 +46,14 @@ class RwController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'kode_rw' => 'required|unique:rws',
-            'nama_rw' => 'required|unique:rws'
-        ]); 
+            'nama_rw' => 'required'
+
+            
+        ],[
+           'nama_rw.required' => 'Nama RW sudah terdaftar',
+           
+  
+        ]);
 
         $rw = new Rw;
         $rw->nama_rw = $request->nama_rw;

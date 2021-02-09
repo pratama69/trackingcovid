@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKasusesTable extends Migration
+class CreateKasus2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateKasusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('kasuses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('id_negara')->unsigned();
-            $table->foreign('id_negara')->references('id')->on('negaras')
-                  ->onDelete('cascade')->onUpdate('cascade');
+        Schema::create('kasus2s', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('id_rw')->constrained('rws')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('jpositif');
-            $table->integer('jmeninggal');
             $table->integer('jsembuh');
+            $table->integer('jmeninggal');
             $table->date('tanggal');
             $table->timestamps();
         });
@@ -33,6 +31,6 @@ class CreateKasusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kasuses');
+        Schema::dropIfExists('kasus2s');
     }
 }

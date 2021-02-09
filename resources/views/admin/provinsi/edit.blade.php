@@ -5,8 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit Data Provinsi</div>
-                                
+                <div class="card-header">Edit Data Provinsi</div>            
                     <form action="{{route('provinsi.update',$provinsi->id)}}" method="POST">
                     <input type="hidden" name="_method" value="PUT">
                     @csrf
@@ -19,8 +18,8 @@
                                 <input type="text" name="nama_provinsi" value="{{$provinsi->nama_provinsi}}" class="form-control" required>
                             </div>
                             <div class="form-group">
-                            <button type="submit" class="btn btn-primary">simpan</button>
-                            <a href="{{url()->previous()}}" class="btn btn-outline-secondary">kembali</a>
+                            <button type="submit" class="btn btn-outline-dark">simpan</button>
+                            <a href="{{url()->previous()}}" class="btn c">kembali</a>
                             </div>
                     </form>
                                 

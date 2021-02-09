@@ -358,5 +358,10 @@
 <script src="{{asset('assets/dist/js/pages/dashboard.js')}}"></script>
 @yield('js')
 @livewireScripts
+<script>
+            $(document).ready( function () {
+                $('#datatable').DataTable();
+            } );
+    </script>
 </body>
 </html>

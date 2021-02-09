@@ -14,13 +14,17 @@ class CreateKelurahansTable extends Migration
     public function up()
     {
         Schema::create('kelurahans', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('id_kecamatan')->unsigned();
-            $table->foreign('id_kecamatan')
-                  ->references('id')
-                  ->on('kecamatans')->onDelete('cascade');
-            $table->string('nama_kelurahan');
+            $table->char('id',10);
+            $table->primary('id');
+            $table->char('id_kecamatan');
+            $table->string('nama_kelurahan', 30);
             $table->timestamps();
+
+            $table->foreign('id_kecamatan')
+                ->references('id')
+                ->on('kecamatans')
+                ->onUpdate('cascade')->onDelete('cascade');
+        
         });
     }
 

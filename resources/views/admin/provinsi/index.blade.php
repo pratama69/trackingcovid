@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('css')
+<!-- @section('css')
 <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
@@ -10,28 +10,26 @@
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-@endsection
+@endsection -->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><b>Data Provinsi</b></div>
-                <div class="card">
-                <a href="{{route('provinsi.create')}}" class="btn btn-primary float-right"> Tambah Data </a>
-                </div>
+                <div class="card-header"><center><b>Data Provinsi</b></center></div>
                 <div class="card-body">
+                <a href="{{route('provinsi.create')}}" class="btn btn-outline-success float-right"><b>Tambah Data</b></a>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-                <table id="example1" class="table table-bordered table-striped"> 
+                <table class="table table-bordered" id="datatable">
                 <thead>
-                <tr class="bg-dark">
-                <th><center>No</center></th>
-                <th><center>Kode provinsi</center></th>
-                <th><center>Nama provinsi</center></th>
+                <tr class="bg-info">
+                <th width="10px">No</th>
+                <th>Kode Provinsi</th>
+                <th>Nama Provinsi</th>
                 <th><center>Aksi</center></th>
                 </tr>
             </thead>
@@ -39,28 +37,29 @@
         @php  $no=1;  @endphp
         @foreach ($provinsi as $data)
                 <tr>
-                <th scope="row">{{ $no++}}</th>
+                <td>{{$no++}}</td>
                 <td>{{$data->kode_provinsi}}</td>
                 <td>{{$data->nama_provinsi}}</td>
-                <td>
+                <td style="text-align: center;">
                     <form action="{{route('provinsi.destroy',$data->id)}}" method="post">
                         @csrf @method('delete')
-                        <a href="{{route('provinsi.show',$data->id)}}" class="btn btn-sm btn-success">lihat</a>
-                        <a href="{{route('provinsi.edit',$data->id)}}" class="btn btn-sm btn-warning">Edit</a>
-                        <button type="sumbit" onclick="return confirm('Apakah anda yakin?')"class="btn btn-sm btn-danger">hapus</button>
+                        <a href="{{route('provinsi.show',$data->id)}}"  class="btn btn-primary btn-sm">lihat</a>
+                        <a href="{{route('provinsi.edit',$data->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                        <button type="sumbit" onclick="return confirm('Apakah anda yakin?')" class="btn btn-danger btn-sm">hapus</button>
                     </form>
                 </td>
                 </tr>
 
                 @endforeach
-            </body>
+            </tbody>
+            </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-@section('js')
+<!-- @section('js')
 <script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 
@@ -77,4 +76,4 @@
     });
   });
 </script>
-@endsection
+@endsection -->

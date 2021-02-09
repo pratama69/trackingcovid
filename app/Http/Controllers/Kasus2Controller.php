@@ -44,6 +44,19 @@ class Kasus2Controller extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'jpositif' => 'required',
+            'jsembuh' => 'required',
+            'jmeninggal' => 'required',
+            'tanggal' => 'required'
+      
+         ],[
+            'jpositif.required' => 'Data positif Tidak boleh Kosong',
+            'jsembuh.required' => 'Data sembuh Tidak Boleh Kosong',
+            'jmeninggal.required' => 'Data meninggal Tidak Boleh Kosong',
+            'tanggal.required' => 'tanggal Tidak Boleh Kosong',
+            
+         ]);
         $kasus2 = new Kasus2;
         $kasus2->id_rw = $request->id_rw;
         $kasus2->jpositif = $request->jpositif;
@@ -89,7 +102,6 @@ class Kasus2Controller extends Controller
     public function update(Request $request, $id)
     {
         $kasus2 = Kasus2::findOrFail($id);
-        $kasus2->id_rw = $request->id_rw;
         $kasus2->jpositif = $request->jpositif;
         $kasus2->jmeninggal = $request->jmeninggal;
         $kasus2->jsembuh = $request->jsembuh;
