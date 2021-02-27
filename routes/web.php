@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvinsiController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +16,20 @@ use App\Http\Controllers\ProvinsiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Route::get('testing', function () {
     return view('layouts.master');
 });
+
+
+use App\Http\Controllers\FrontendController;
+Route::resource('/', FrontendController::class);
+
+
+// Route::resource('index', FrontendController::class);
+// Auth::routes();
 
 // Route::get('provinsi', function () {
 //     return view('admin.provinsi.index');
@@ -45,10 +54,14 @@ Route::resource('rw', RwController::class);
 use App\Http\Controllers\Kasus2Controller;
 Route::resource('kasus2', Kasus2Controller::class);
 
-// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
