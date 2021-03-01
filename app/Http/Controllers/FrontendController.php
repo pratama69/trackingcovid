@@ -46,13 +46,11 @@ class FrontendController extends Controller
             ->get();
 
             //Pengambilan Data Positif sedunia secara online (by.KawalCorona.com)
-            $global = file_get_contents('https://api.kawalcorona.com/positif');
-            $getglobal = json_decode($global, TRUE);
+
 
              // Table Global        
-        $dataglobal= file_get_contents("https://api.kawalcorona.com/");
-        $globall = json_decode($dataglobal, TRUE);
+       
 
-        return view('frontend.index', compact('positif','sembuh','meninggal','lokal','globall','getglobal'));
+        return view('frontend.index', compact('positif','sembuh','meninggal','lokal'));
     }
 }

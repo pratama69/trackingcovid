@@ -150,35 +150,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-success shadow h-100 py-2">
-                        <div class="card bg-success  shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <br>
-                                        <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                            <h3>Indonesia</h3>
-                                        </div><br>
-                                        <h2 class="title"><a href="">DATA KASUS DUNIA</a></h2>
-                                        <span data-toggle="counter-up">
-                                            <center>
-                                            </center>
-                                        </span>
 
-                                        <p><b>Orang</b></p>
-                                    </div>
-                                    <div class="col-auto">
-                                        <img style="width: 75px; height:75px" src="assets/img/bendera-indonesia.PNG" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
-
-        </div>
 
 
         </div>
@@ -285,19 +259,7 @@
                                         @php
                                             $no = 1;
                                         @endphp
-                                        <?php for ($i = 0; $i <= 191; $i++) { ?> <tr>
-                                            <td> <?php echo $i + 1; ?></td>
-                                            <td> <?php echo $globall[$i]['attributes']['Country_Region'];
-                                                ?>
-                                            </td>
-                                            <td> <?php echo $globall[$i]['attributes']['Confirmed']; ?>
-                                            </td>
-                                            <td><?php echo $globall[$i]['attributes']['Recovered']; ?>
-                                            </td>
-                                            <td><?php echo $globall[$i]['attributes']['Deaths']; ?>
-                                            </td>
-                                            </tr>
-                                            <?php } ?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -333,6 +295,7 @@
             <div class="row content">
                 <div class="col-lg-6">
                     <ul>
+                        <h3>Cara menghindari covid-19</h3>
                         <li><i class="ri-check-double-line"></i> Cuci tangan Anda secara rutin. Gunakan
                             sabun dan
                             air, atau cairan pembersih tangan berbahan alkohol.</li>
@@ -359,6 +322,8 @@
                 <div class="col-lg-6 pt-4 pt-lg-0">
 
                     <ul>
+                        <h3>Gejala Covid-19</h3>
+                        <br>
                         <li><i class="ri-check-double-line"></i>Demam ≥380 C</li>
                         <li><i class="ri-check-double-line"></i> Kelelahan atau lemas</li>
                         <li><i class="ri-check-double-line"></i> Hilangnya kemampuan mengecap rasa atau
@@ -389,58 +354,10 @@
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <!-- Contact Section Form-->
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Name</label>
-                                <input class="form-control" id="name" type="text" placeholder="Name" required="required"
-                                    data-validation-required-message="Please enter your name." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Email Address</label>
-                                <input class="form-control" id="email" type="email" placeholder="Email Address"
-                                    required="required"
-                                    data-validation-required-message="Please enter your email address." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Phone Number</label>
-                                <input class="form-control" id="phone" type="tel" placeholder="Phone Number"
-                                    required="required"
-                                    data-validation-required-message="Please enter your phone number." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Message</label>
-                                <textarea class="form-control" id="message" rows="5" placeholder="Message"
-                                    required="required"
-                                    data-validation-required-message="Please enter a message."></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <br />
-                        <div id="success"></div>
-                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton"
-                                type="submit">Send</button></div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </section>
     <!-- Footer-->
     <footer class="footer text-center">
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <!-- Footer Location-->
                 <div class="col-md-4">
@@ -451,9 +368,41 @@
                             Dayeuhkolot, Kota
                             Bandung, Jawa Barat 40265</address>
                     </div>
+                </div> --}}
+
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="mt-0">Kontak</h2>
+                        <hr class="divider my-4" />
+                        <p class="text-muted mb-5"></p>
+                    </div>
                 </div>
-                <!-- Footer Social Icons-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="row">
+                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                        <div>
+                            <+1>+1 (555) 123-4567</b>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                        <i class="fas fa-location-arrow fa-3x mb-3 text-muted"></i>
+                        <div>Lokasi: <b>Jalan Situ Tarate Jl. Cibaduyut Raya, Cangkuang Kulon, Kec.
+                                Dayeuhkolot, Kota
+                                Bandung, Jawa Barat 40265</address></b></div>
+                    </div>
+                    <div class="col-lg-4 mr-auto text-center">
+                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                        <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
+                        <a class="d-block" href="mailto:contact@yourwebsite.com"><b>nandajulia@gmail.com</b></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!-- Footer Social Icons-->
+    {{-- <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Around the Web</h4>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i
                             class="fab fa-fw fa-facebook-f"></i></a>
@@ -473,7 +422,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> --}}
     <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright © Your Website 2020</small></div>
